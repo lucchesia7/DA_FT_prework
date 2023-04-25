@@ -1,0 +1,734 @@
+<html>
+    <head>
+        <title>Coding Temple's Data Analytics Program PreWork</title>
+    </head>
+    <body>
+        <h1>Coding Temple's Data Analytics Program PreWork</h1>
+        <hr>
+        <h2>Getting Started</h2>
+        <hr>
+        <p>Before you begin the exercises, please ensure the following:</p>
+        <ul>
+            <li>You have created an account with <a href="https://www.kaggle.com/">Kaggle</a>, 
+                <a href="https://public.tableau.com/app/discover">Tableau</a>, 
+                <a href="https://github.com/">GitHub</a></li>
+            <li>You have downloaded <a href="https://dev.mysql.com/downloads/windows/installer/8.0.html">MySQL Installer</a>, 
+                <a href="https://www.pgadmin.org/download/">pgadmin4</a>, 
+                <a href="https://cran.r-project.org/mirrors.html">R</a>, 
+                <a href="https://posit.co/download/rstudio-desktop/">R Studio</a>, 
+                <a href="https://public.tableau.com/app/discover">Tableau Public</a>, 
+                and <a href="https://desktop.github.com/">GitHub Desktop</a></li>
+            <li>You have access to Microsoft Excel, whether <a href="https://www.microsoft.com/en-us/microsoft-365/p/excel/CFQ7TTC0HR4R?ef_id=_k_6c21ac55d67a147acce5c81734cef983_k_6c21ac55d67a147acce5c81734cef983_k_EAIaIQobChMIy5DLk9nR8QIVgUCGCh3qZwFYEAAYASAAEgJtrPD_BwE:G:s&OCID=AID2100131_SEM_CFQ7TTC0HR4R&MarinID=CFQ7TTC0HR4R&lnkd=Google_Microsoft_O365SMB_TopPerformers_FeaturedProduct&msclkid=6c21ac55d67a147acce5c81734cef983&utm_source=bing&utm_medium=cpc&utm_campaign=SEA_O365SMB_TopPerformers_FeaturedProduct&utm_term=microsoft%20excel%20download&utm_content=Microsoft_Excel">locally</a> 
+                or <a href="https://www.office.com/launch/excel?ui=en-US&rs=US&auth=1">online</a>. Excel requires a subscription on your local machine, but offers a free month trial! Online, access to Excel is free.</li>
+            <li>You have created a GitHub Repository for all your precourse work to go into.</li>
+        </ul>
+    <br>
+        <h2>Excel</h2>
+    <hr>
+        <h3>Walk-Through</h3>
+        <p>
+            Excel can be used to load in data from a lot of different sources and makes doing so very easy and intuitive. 
+            Excel is also a great predictor. It is useful for intaking data 
+            After launching Excel, we are greeted by the <code>Home</code> screen. In this screen, we will see three different panes off to the left 
+            hand side. <code>Home</code>, <code>New</code>, and <code>Open</code>.
+        </p>
+        <p>
+            Once we select the open button, we will want to click on <code>Browse</code> option 
+            and select the file we want to open in Excel.
+        </p>
+        <p>
+            With csv files, Excel will infer the format it imports in. You can verify that the data has been 
+            loaded correctly by seeing the column names in the top row followed by data in each other row. 
+            Each row should have a value and each column should be a variable.
+        </p>
+
+        <h3>Creating Visualizations</h3>
+        <p>
+            Excel is great at creating visualizations with little to no effort. To do so, we can select the rows or columns which we want 
+            create a visualization from. Then, using the Insert tab, we can select a visualization which we want to insert into the data.
+        </p>
+	    <h3>Exercises</h3>
+	    <ul>
+		    <li>Complete the following exercises in an <code>.xlsx</code> file.</li>
+		    <li>Upload the file to github.com and submit the link to the Git Repository to the Google Classroom Assignment.</li>
+            <h4><strong>Exercise 1:</strong></h4>
+            <p>Using Excel, load in the dataset located <a href="https://www.kaggle.com/datasets/takahirokubo0/annual-financial-data-for-hybrid-cdp-kpi">here</a>.</p>
+            <h4><strong>Exercise 2:</strong></h4>
+            <p>Create a bar chart of the <code>Fiscal Year</code> and <code>Revenue</code> columns.</p>
+        </ul>
+    <br>
+        <h2>MySQL</h2>
+    <hr>
+        <h3>Walk-Through</h3>
+        <h4>Create a Database</h4>
+        <p>
+            After installation of MySQL, we can open the Workbench, our GUI (Graphic User Interface) for MySQL operations. 
+            When opened, we are greeted by the MySQL welcome screen. Don't worry too much about the GUI yet, we will be covering over it in class.
+        </p>
+        <p>
+            On the screen in bold letters is MySQL Connections. Next to this, is a small <code>+</code> button. 
+            This is how we will set up our new connection. Once we click on this, we will focus on the <code>Stored Connection</code> 
+            and the <code>Test Connection</code> variables. Click on <code>Connection Name</code> and name your connection <code>test</code>. After that, click on the 
+            <code>Test Connection</code> button to verify that you have a connection to your database you are trying to create. In the event that the connection fails, 
+            you may want to double check your firewall or antivirus. You may also need to open the port on your computer to accept connections!
+        </p>
+        <p>
+            Once we test the connection and have verified that it works, click the <code>OK</code> button to create your first database. 
+            Then we can click on the connection name and open our database.
+        </p>
+        <h4><strong>Create a Table</strong></h4>
+        <p>Structured Query Language(SQL) is how we interact with a MySQL database.</p>
+        <p>
+            To create a table, we specify using SQL keywords <code>CREATE</code> and <code>TABLE</code>, 
+            giving a table name and the names of columns we wish to add to the table.
+        </p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            CREATE TABLE IF NOT EXISTS >table_name<(
+                id INT,
+                product VARCHAR(50),
+                quantity INT,
+        
+            )
+        </pre>
+        <p>You can read more about creating a table in SQL <a href="https://www.w3schools.com/mysql/mysql_create_table.asp">here</a></p>
+        <h4>Inserting Data</h4>
+        <p>Now that we have created a table, we will need to add data to it. This is done in SQL using the <code>INSERT</code> keyword.</p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            INSERT INTO >table_name<
+            VALUES(
+                value1,
+                value2,
+                value3
+            )
+        </pre>
+        <p>For more on how to utilize the <code>INSERT</code> statement in MySQL, check out <a href="https://www.w3schools.com/mysql/mysql_insert.asp">this</a> resource.</p>
+        <h4>Querying Data</h4>
+        <p>Now that we have a table and data inside that table, 
+            what if I wanted to view my data? This is where queries come in! Queries are how we access and return data from a table. A query utilizes the SQL keyword <code>SELECT</code>
+        </p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            SELECT * FROM >table_name<
+        </pre>
+        <p>
+            <code>*</code> in SQL has a special meaning. It will return all the data within a table!
+            So, when we run our statement above, we will be returning all data available within our table.
+        </p>
+        <h3>Exercises</h3>
+        <ul>
+            <li>Complete the following exercises in MySQL</li>
+            <li>Save your code for all exercises to a single .sql file and upload the file to your GitHub Repository</li>
+            <h4>Exercise 1:</h4>
+                <p>
+                    Create a table named <code>customers</code>. Your table should have three columns in it's creation.
+                    <ul>
+                        <li>cust_id</li>
+                        <li>cust_name</li>
+                        <li>address</li>
+                    </ul>
+                </p>
+            <h4>Exercise 2:</h4>
+                <p>Now that you have created a <code>customers</code> table, insert in three rows of data
+                    You are free to choose the data that you insert into your table.
+                </p>
+            <h4>Exercise 3:</h4>
+                <p>Query all the data from your database.</p>
+            
+        </ul>
+    <br>
+        <h2>R</h2>
+    <hr>
+        <h3>Walk-Through</h3>
+        <p>
+            After installing R and R Studio, we will launch R Studio. R Studio has a lot in it's GUI, all of 
+            which we will be covering over together during our course. Today, we will focus on the <code>new file</code>
+            button, located in the top left corner of R Studio. We will create a new <code>.R, or R Script</code> file.
+            Now that we have our new file, we can begin to work with R!
+        </p>
+        <h4>Variable Assignment</h4>
+        <p>
+            Once you have your new file open in front of you, we will begin with variable assignment. In R, variable assignment
+            uses the <code><-</code> operand to assign a variable name to a value.
+        </p>
+        <p><strong>
+            For Example:</strong>Let's say I wanted to create a variable named <code>x</code> and save the value <code>3</code> to it.
+            The code would look like:
+        </p>
+        <pre>
+            x <- 3
+        </pre>
+        <h4>Working with Numerical Values</h4>
+        <p>
+            R allows users to perform a variety of operands with integer values. Some examples of these operands would be: <code>+</code>,
+            <code>-</code>, <code>*</code>, <code>/</code>, <code>%%</code>, <code>%/%</code>. Let's take a look at how we can apply these to some numerical values:
+        </p>
+        <pre>
+            # Create two numerical variables
+            num_1 <- 3
+            num_2 <- 5
+            
+            # Perform addition
+            num_1 + num_2
+            
+            # Perform subtraction
+            num_1 - num_2
+            
+            # Perform multiplication
+            num_1 * num_2
+            
+            # Perform division
+            num_1 / num_2
+            
+            # Perform floor division, returning the product of the division without a remainder
+            num_2 %/% num_1
+
+            # Perform modulus, returning the remainder of the division
+            num_2 %% num_1
+        </pre>
+        <h4>Character Manipulation</h4>
+        <p>
+            What if I wanted to create two character strings and save them to the variables
+            <code>my_first_name</code> and <code>my_last_name</code>? The code for that would look like:
+        </p>
+        <pre>
+            my_first_name <- "Alex"
+            my_last_name <- "Lucchesi"
+        </pre>
+        <p>
+            Now, we have our two variables containing our name. How can I change this into a single variable
+            named <code>my_full_name</code> instead? In R, we can utilize the <code>paste</code> function. 
+            <code>paste</code> concatenates values given, spearating them by a <code>sep</code> argument.
+        </p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            my_full_name <- paste(my_first_name, my_last_name, sep=' ')
+        </pre>
+        <p>
+            We can also use the print() function to concatenate pieces of our print statement with variables
+            we have created.
+        </p>
+
+        <pre>
+            # Print a character string that has "My name is:" and our full name
+            print("My name is:", my_full_name)
+        </pre>
+        <h4>Vectors</h4>
+        <p>
+            In R, we will work a lot with vectors. A vector is like a list in Python, but can only hold a single
+            data type. Vectors are highly functional and an important part of Data Analysis
+        </p>
+        <p>
+            To create a vector, we use the <code>c()</code> function in R, passing in the values we wish to add to the vector,
+            separated by a comma.
+        </p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            # Create a numerical vector and save it to the variable my_vec
+            my_vec <- c(1,2,3,4,5,6,7,8,9)
+        </pre>
+<br>
+        <p>
+            Numerical vectors support element-wise operations; meaning we can add, 
+            subtract, multiply, and divide vectors across each value in each vector.
+        </p>
+        <p><strong>For Example:</strong></p>
+        <pre>
+            # Create a new numerical vector and save it to the variable my_vec2
+            my_vec2 <- c(9,8,7,6,5,4,3,2,1)
+            
+            # Create a new variable named my_added_vec which adds both vectors together
+            my_added_vec <- my_vec + my_vec2
+            
+            # View the new vector
+            print(my_added_vec)
+        </pre>
+
+        <h3>Exercises</h3>
+        <ul>
+            <li>Complete the following exercises in a <code>.r</code> file.</li>
+            <li>Upload the file to your GitHub Repository</li>
+        </ul>
+        <h4>Exercise 1:</h4>
+        <p>
+            Create three variables; x, y, and z. Assign each of these variables a numerical value,
+            then perform each of the operands you have learned about so far to all three variables.
+        </p>
+        <h4>Exercise 2:</h4>
+        <p>
+            Create two strings with your first and last name. Concatenate the strings and print the new value as
+            "My name is <code>your newly created concatenated variable will go here</code>"
+        </p>
+        <h4>Exercise 3:</h4>
+        <p>
+            Create two numerical vectors of equal length. Multiply these vectors together and save the resulting vector
+            to the variable <code>mult_vect</code>
+        </p>
+
+        <h2>Python 101</h2>
+        <hr>
+        <h3>Task 1: Read Textbook</h3>
+        <ol type="I">
+            <li><a href="https://codingtemple.github.io/python/static/PythonCrashCourse.pdf">Download e-book</a></li>
+            <li><a href="https://drive.google.com/file/d/1aB7v9cuOTzm8pE7Vgx4GV5GDkOi29Gpc/view?usp=sharing">Watch the Video Lesson</a></li>
+            <li>Read Chapter 2</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/19hJa2hjMxwhtByzp6-opGYx4U-aBO9ld/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/j6xBukqDUV3Tat5i6">Chapter 2 Quiz</a></li>
+            </ol>
+            <li>Read Chapter 3</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/1ZDWiHrhFQv-bawspnxWBuHC7ptAKO2oR/view?usp=sharing">Watch the Video Lesson</a></li>
+            </ol>
+            <li>Read Chapter 4</li>
+            <ol type="i">
+                <li>Practice What you Read</li>
+                <li><a href="https://drive.google.com/file/d/1MrxPqbWxarCDFhj_kPbLla5bgcJkgMVg/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/PfrXDr4AxZACBXSXA">Chapters 3 & 4 Quiz</a></li>
+            </ol>
+        </ol>
+        <h3>Task 2: Follow These Coding Exercises</h3>
+        <p>
+            Please try the following code examples yourself by opening up the Command Prompt(if using Windows) or Terminal (if using Linux/Mac),
+            type in <code>Python</code> and press Enter. You should see <code>>>></code>. If you don't, then make sure you have Python installed
+            and the PATH is added to your environment variables.
+        </p>
+        <h4>Using Python as a Calculator</h4>
+        <p>
+            The interpreter acts as a simple calculator: you can type an expression in it and it will return the value.Expression syntax is straightforward: the operators <code>+</code>,
+            <code>-</code>,<code>*</code>, and <code>/</code> work just like in most other languages (for example, R or C); parentheses (<code>()</code>)can be used for grouping.
+            <strong>For Example:</strong>
+        </p>
+        <pre>
+            >>> 2+2
+            4
+            
+            >>> 50 - 5*6
+            20
+            
+            >>> (50 - 5*6) / 4
+            2.0
+            
+            >>> 8/5 # Division always returns a floating point number(decimal)
+            1.6
+        </pre>
+        <br>
+        <p>
+            Integer numbers, (i.e. 2,4,20) have an <code>int</code> type, the ones with a fractional part (i.e. 5.0, 1.6)
+            are considered a <code>float</code> type. Division (<code>/</code>) will always return a float type. To do floor division,
+            and get an integer result (discarding the remainder of the division), we can perform floor division. This is done in Python by using
+            the <code>//</code> operand. If you wanted to return only the remainder of the division, we would use the modulus operand (<code>%</code>)
+        </p>
+        <pre>
+            >>> 17 / 3 # Normal division, returns a float type
+            5.66666666667
+
+            >>> 17//3 # Floor division discards the remainder, returns int type
+            5
+            >>> 17 % 3 # Modulus operand, returns remainder of division, returns int type
+            2
+            >>> 5 * 3 + 2 
+            <br>
+            # With Python, it is possible to use the ** operand to calculate exponents
+            >>>
+            >>> 5 ** 2 # 5 squared
+            25
+            >>> 2 ** 7 # 2 to the power of 7
+            128
+        </pre>
+        <br>
+        <p>
+            The equal sign (<code>=</code>) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive
+            prompt. There is full support for floating point; operators with mixed type operands convert the integer operand to floating point:
+        </p>
+        <br>
+        <pre>
+            >>> width = 20
+            >>> height = 5 * 9
+            >>> width * height
+            900
+
+            >>> 4 * 3.75 - 1
+            14.0
+        </pre>
+        <br>
+        <h4>Strings in Python</h4>
+        <p>
+            Besides numbers, Python can also be used to manipulate strings, which can be expressed in several ways. 
+            They can be enclosed in single quotes ('...') or double quotes ("...") with the same result. \ can be used to escape quotes:
+        </p>
+        <br>
+        <pre>
+            >>> 'spam eggs' # Single quotes
+
+            >>> 'doesn\'t' # uses \ to escape the single quote
+            "doesn't"
+
+            >>> "doesn't" # Using double quotes, we can add in a quotation mark without having to escape
+            "doesn't"
+
+            >>> '"Yes," he said.'
+            '"Yes," he said.'
+        </pre>
+
+        <p>
+            If you want to concatenate variables or a variable and a literal, use +:
+        </p>
+
+        <pre>
+            >>> prefix = 'Py'
+            >>> prefix + 'thon123'
+            'Python123'
+        </pre>
+
+        <p>
+            Strings can be indexed (subscripted), with the first character having index 0. 
+            There is no separate character type; a character is simply a string of size one:
+        </p>
+        
+        <pre>
+            >>> word = 'Python'
+            >>> word[0]  # character in position 0
+            'P'
+            
+            >>> word[5]  # character in position 5
+            'n'
+        </pre>
+
+        <p>
+            Indices may also be negative numbers, to start counting from the right:
+        </p>
+
+        <pre>
+            >>> word[-1]  # last character
+            'n'
+
+            >>> word[-2]  # second-last character
+            'o'
+
+            >>> word[-6]
+            'P'
+        </pre>
+
+        <p>
+            In addition to indexing, slicing is also supported. While indexing is used to obtain individual characters, slicing allows you to obtain substring:
+        </p>
+
+        <pre>
+            >>> word[0:2]  # characters from position 0 (included) to 2 (excluded)
+            'Py'
+            
+            >>> word[2:5]  # characters from position 2 (included) to 5 (excluded)
+            'tho'
+        </pre>
+
+        <p>
+            Note how the start is always included, and the end always excluded. This makes sure that s[:i] + s[i:] is always equal to s:
+        </p>
+
+        <pre>
+            >>> word[:2] + word[2:]
+            'Python'
+
+            >>> word[:4] + word[4:]
+            'Python'
+        </pre>
+
+        <p>
+            Slice indices have useful defaults; an omitted first index defaults to zero, an omitted second index defaults to the size of the string being sliced.
+        </p>
+
+        <pre>
+            >>> word[:2]   # character from the beginning to position 2 (excluded)
+            'Py'
+            
+            >>> word[4:]   # characters from position 4 (included) to the end
+            'on'
+            
+            >>> word[-2:]  # characters from the second-last (included) to the end
+            'on'
+        </pre>
+
+        <h4>Python Lists</h4>
+
+        <p>
+            Python knows a number of compound data types, used to group together other values. The most versatile is the list, which can be written as a list of comma-separated values (items) between square brackets. 
+            Lists might contain items of different types, but usually the items all have the same type.
+        </p>
+
+        <pre>
+            >>> squares = [1, 4, 9, 16, 25]
+            
+            >>> squares
+            [1, 4, 9, 16, 25]
+        </pre>
+
+        <p>
+            Like strings (and all other built-in sequence type), lists can be indexed and sliced:
+        </p>
+
+        <pre>
+            >>> squares[0]  # indexing returns the item
+            1
+            
+            >>> squares[-1]
+            25
+            
+            >>> squares[-3:]  # slicing returns a new list
+            [9, 16, 25]
+        </pre>
+
+        <p>
+            Lists also support operations like concatenation:
+        </p>
+
+        <pre>
+            >>> squares + [36, 49, 64, 81, 100]
+            [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+        </pre>
+
+        <p>
+            Unlike strings, which are immutable, lists are a mutable type, i.e. it is possible to change their content:
+        </p>
+
+        <pre>
+            >>> cubes = [1, 8, 27, 65, 125]  # something's wrong here
+            >>> 4 ** 3  # the cube of 4 is 64, not 65!
+            64
+            
+            >>> cubes[3] = 64  # replace the wrong value
+            >>> cubes
+            [1, 8, 27, 64, 125]
+        </pre>
+
+        <p>
+            You can also add new items at the end of the list, by using the append() method (we will see more about methods later):
+        </p>
+        <pre>
+            >>> cubes.append(216)  # add the cube of 6
+            
+            >>> cubes.append(7 ** 3)  # and the cube of 7
+            >>> cubes
+            [1, 8, 27, 64, 125, 216, 343]
+        </pre>
+        <p>
+            Assignment to slices is also possible, and this can even change the size of the list or clear it entirely:
+        </p>
+
+        <pre>
+            >>> letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+            >>> letters
+            ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+            
+            >>> # replace some values
+            >>> letters[2:5] = ['C', 'D', 'E']
+            >>> letters
+            ['a', 'b', 'C', 'D', 'E', 'f', 'g']
+            
+            >>> # now remove them
+            >>> letters[2:5] = []
+            >>> letters
+            ['a', 'b', 'f', 'g']
+            
+            >>> # clear the list by replacing all the elements with an empty list
+            >>> letters[:] = []
+            >>> letters
+            []
+        </pre>
+
+        <p>
+            The built-in function len() also applies to lists:
+        </p>
+        <pre>
+            >>> letters = ['a', 'b', 'c', 'd']
+            >>> len(letters)
+            4
+        </pre>
+        <h2> Python 102</h2>
+        <hr>
+        <h3> Task 1: Read Textbook</h3>
+        <ol type="I">
+            <li><a href="https://codingtemple.github.io/python/static/PythonCrashCourse.pdf">Download e-book</a></li>
+            <li>Read Chapter 5</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/1vCW97YNbESs9FUTygGZIz5no_WD6X-fe/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/VetnSUFkSTPRmPFdA">Chapter 5 Quiz</a></li>
+            </ol>
+            <li>Read Chapter 6</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/1Yt7dFwUS-jDnVa7ObCZrxzOO-mAMEWUT/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/tc4NYaeXwAoeuU2Q7">Chapter 6 Quiz</a></li>
+            </ol>
+            <li>Read Chapter 7</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/18j-c2EKA92_6lMb7JZtTvoaaZmB_Gdja/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/ypjq248zjCM7PmG17">Chapter 7 Quiz</a></li>
+            </ol>
+            <li>Read Chapter 8</li>
+            <ol type="i">
+                <li>Practice what you read</li>
+                <li><a href="https://drive.google.com/file/d/1mZ9USzTCYkjOSD0Hu9IGmcXcOVpvWnJ0/view?usp=sharing">Watch the Video Lesson</a></li>
+                <li><a href="https://forms.gle/pTzpA4stAE8MerXB6">Chapter 8 Quiz</a></li>
+            </ol>
+        </ol>
+        <h3>Task 2: Follow these Coding Exercises</h3>
+        <p>Please try the following coding examples yourself</p>
+
+        <h3>Python Control Flow</h3>
+        <h4>Indentation</h4>
+        <p>Python Uses Indentation to do Control Flow.
+            It is important to keep a good understanding of how indentation works in Python to maintain the structure and order of your code.
+        </p>
+        <h4>The Three Ways</h4>
+        <p>In this universe, anything can be done by these three ways:</p>
+        <ol type="1">
+            <li>Step by Step: Line by Line</li>
+            <li>Branch: If... elif...else</li>
+            <li>Looping: For, While</li>
+        </ol>
+
+        <h4>Branch: if... elif... else...</h4>
+        <p>
+            The if Statement in Python allows us to tell the computer to perform alternative actions based on a certain set of results.
+
+            Verbally, we can imagine we are telling the computer: "Hey if this case happens, perform some action"
+
+            We can then expand the idea further with elif and else statements, which allow us to tell the computer:
+            "Hey if this case happens, perform some action. Else if another case happens, perform some other action. Else-- none of the above cases happened, perform this action"
+
+            Let's go ahead and look at the syntax format for if statements to get a better idea of this:
+        </p>
+        <pre>
+            if case1:
+                perform action1
+            elif case2:
+                perform action2
+            else:
+                perform action 3
+        </pre>
+        <p>Let's see a quick example of this:</p>
+        <pre>
+            >>> x = int(input("Please enter an integer: "))
+            Please enter an integer: 42
+            >>> if x < 0:
+                    x = 0
+                    print('Negative changed to zero')
+                elif x == 0:
+                    print('Zero')
+                elif x == 1:
+                    print('Single')
+                 else:
+                    print('More')
+                ...
+                More
+        </pre>
+        <h4>Looping: for, while</h4>
+        <p>
+            The for statement in Python is used to do repeating.
+            Python's for statement iterates over the items of any sequence (a list or a string), in the order that they appear in the sequence.
+        </p>
+        <pre>
+            >>> # Measure some strings:
+            ... words = ['cat', 'window', 'defenestrate']
+            >>> for w in words:
+            ...     print(w, len(w))
+            ...
+            cat 3
+            window 6
+            defenestrate 12
+        </pre>
+        <h3>Functions in Python</h3>
+        <p>Functions will be one of our main building blocks when we construct larger and larger amounts of code to solve problems.</p>
+        
+        <h4>What is a function?</h4>
+        <p>
+            Formally, a function is a useful device that groups together a set of statements so they can be run more than once. They can also let us specify parameters that can serve as inputs to the functions. On a more fundamental level, 
+            functions allow us to not have to repeatedly write the same code again and again.
+
+            There are two kinds of functions: built-in functions, which are already created by python, and User defined functions (UDF)
+
+            For example, the function len(), which is a built-in function, is used to get the length of a string or a list. Since checking the length of a sequence is a common task you would want to write a function that can do this repeatedly at command. 
+            Function is one of most basic levels of reusing code in Python.
+        </p>
+        <h4>Function Syntax</h4>
+        <ol type="1">
+            <li>Indentation and the def Statement are used to build out a function in Python.</li>
+            <li>A list of parameters in (x, y, z). It is possible for a function to not have any parameters just like (). Do not forget the ':', at the end of the first line of the function definition.</li>
+            <li>Use a return statement, a function will return a result that can then be stored as a variable, or used in whatever manner a user wants.</li>
+        </ol>
+        <p>Here is a basic example:</p>
+        <pre>
+            >>> def add_num(num1,num2):
+            ...     return num1+num2
+            
+            >>> add_num(4,5)
+            9
+        </pre>
+        <p>Here is a UDF(User Defined Function), it tests if a given number is prime</p>
+        <pre>
+            >>> def is_prime(num):
+                '''
+                Naive method of checking for primes.
+                '''
+                for n in range(2,num):
+                    if num % n == 0:
+                        print ('not prime')
+                        break
+                else: # If never mod zero, then prime
+                    print ('prime')
+            >>> is_prime(25)
+            not prime
+        </pre>
+        <h2>Task 3: Coding Questions</h2>
+        <ul>
+            <li>Complete the Coding Questions below in one <code>.py</code>file</li>
+            <li>Upload this file to your GitHub Repository and submit the link to your repository to Google Classroom</li>
+            <li><a href="https://drive.google.com/file/d/1DK3WC3SUGsowAIFkj4qhKFuU2sEhkd-O/view?usp=sharing">Watch this video walkthrough</a></li>
+
+        </ul>
+        <p><strong>You will be turing in this assignment to you google classroom. Please save your 5 functions to one .py file demark the question numbers and the question in a comment above it's respective function</strong></p>
+        
+        <h3>Question 1:</h3>
+        <p>Write a function to print "hello_USERNAME!" USERNAME is the input of the function. The first line of the code has been defined as below.</p>
+        <pre>
+            def first_odds():
+            .....
+        </pre>
+
+        <h3>Question 2:</h3>
+        <p>Write a python function, first_odds that prints the odd numbers from 1-100 and returns nothing</p>
+        <pre>
+            def first_odds():
+            .....
+        </pre>
+
+        <h3>Question 3:</h3>
+        <p>
+            Please write a Python function, max_num_in_list to return the max number of a given list. The first line of the code has been defined as below.
+        </p>
+        <pre>
+            def max_num_in_list():
+            .....
+        </pre>
+
+        <h3>Question 4:</h3>
+        <p>Write a function to return if the given year is a leap year. A leap year is divisible by 4, but not divisible by 100, unless it is also divisible by 400. The return should be boolean Type (true/false).</p>
+        <pre>
+            def is_leap_year():
+            .....
+        </pre>
+
+        <h3>Question 5:</h3>
+        <p>Write a function to check to see if all numbers in list are consecutive numbers. For example, [2,3,4,5,6,7] are consecutive numbers, but [1,2,4,5] are not consecutive numbers. The return should be boolean Type.</p>
+        <pre>
+            def is_consecutive(a_list):
+            .....
+        </pre>
+    </body>
+</html>
